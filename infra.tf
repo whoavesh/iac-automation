@@ -148,7 +148,7 @@ resource "aws_launch_template" "main" {
               sudo apt-get install -y nginx
               sudo systemctl start nginx
               sudo systemctl enable nginx
-              echo "<h1>Hello from Terraform ASG use stress command to add new ec2</h1>" > /var/www/html/index.html
+              echo "<h1>Hello from Terraform ASG use stress command to add new ec2 and trigger cloud watch alarm</h1>" > /var/www/html/index.html
               EOF
   )
 
