@@ -1,6 +1,6 @@
 # Use the default VPC
 data "aws_vpc" "default" {
-  default = false
+  default = true
 }
 
 # Fetch default subnets in eu-west-1a, eu-west-1b, and eu-west-1c
