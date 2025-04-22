@@ -233,3 +233,5 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu" {
     AutoScalingGroupName = aws_autoscaling_group.main.name
   }
 }
+this is a terraform
+
