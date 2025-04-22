@@ -1,6 +1,6 @@
 # Use the default VPC
 data "aws_vpc" "default" {
-  default = false
+  default = true
 }
 
 # Fetch default subnets in eu-west-1a, eu-west-1b, and eu-west-1c
@@ -20,6 +20,11 @@ data "aws_subnet" "default_subnet_1c" {
   vpc_id            = data.aws_vpc.default.id
   availability_zone = "eu-west-1c"
   default_for_az    = true
+}
+
+resource "aws_key_pair" "my-key"{
+    key_name="iac-keys"
+    public_key = file("iac-key.pub")
 }
 
 # Create a security group for the ALB
@@ -130,6 +135,7 @@ resource "aws_launch_template" "main" {
   name_prefix   = "main-launch-template"
   image_id      = "ami-0df368112825f8d8f" # Ubuntu AMI
   instance_type = "t2.micro"
+  key_name = aws_key_pair.my-key.key_name
   
   network_interfaces {
     associate_public_ip_address = true
@@ -156,7 +162,7 @@ resource "aws_launch_template" "main" {
 
 # Create an Auto Scaling Group
 resource "aws_autoscaling_group" "main" {
-  desired_capacity     = 2
+  desired_capacity     = 1
   max_size             = 3
   min_size             = 1
   vpc_zone_identifier  = [
