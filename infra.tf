@@ -23,7 +23,7 @@ data "aws_subnet" "default_subnet_1c" {
 }
 
 resource "aws_key_pair" "my-key"{
-    key_name="iac-keys"
+    key_name=var.keys
     public_key = file("iac-key.pub")
 }
 
@@ -46,7 +46,7 @@ resource "aws_security_group" "alb_sg" {
   }
 
   tags = {
-    Name = "alb-security-group"
+    Name = var.alb-sg-name
   }
 }
 
@@ -75,15 +75,15 @@ resource "aws_security_group" "ec2_sg" {
   }
 
   tags = {
-    Name = "ec2-security-group"
+    Name = var.ec2-sg-name
   }
 }
 
 # Create an Application Load Balancer
 resource "aws_lb" "main" {
-  name               = "main-alb"
+  name               = var.alb-name
   internal           = false
-  load_balancer_type = "application"
+  load_balancer_type = var.lb-type
   security_groups    = [aws_security_group.alb_sg.id]
   subnets           = [
     data.aws_subnet.default_subnet_1a.id,
@@ -92,13 +92,13 @@ resource "aws_lb" "main" {
   ]
 
   tags = {
-    Name = "main-alb"
+    Name = var.alb-name
   }
 }
 
 # Create a target group for the ALB
 resource "aws_lb_target_group" "main" {
-  name     = "main-target-group"
+  name     = var.alb-tg-name
   port     = 80
   protocol = "HTTP"
   vpc_id   = data.aws_vpc.default.id
@@ -114,7 +114,7 @@ resource "aws_lb_target_group" "main" {
   }
 
   tags = {
-    Name = "main-target-group"
+    Name = var.alb-tg-name
   }
 }
 
@@ -133,8 +133,8 @@ resource "aws_lb_listener" "http" {
 # Create an EC2 launch template
 resource "aws_launch_template" "main" {
   name_prefix   = "main-launch-template"
-  image_id      = "ami-0df368112825f8d8f" # Ubuntu AMI
-  instance_type = "t2.micro"
+  image_id      = var.ami-id # Ubuntu AMI
+  instance_type = var.ec2_type
   key_name = aws_key_pair.my-key.key_name
   
   network_interfaces {
@@ -148,7 +148,7 @@ resource "aws_launch_template" "main" {
               sudo apt-get install -y nginx
               sudo systemctl start nginx
               sudo systemctl enable nginx
-              echo "<h1>Hello from Terraform ASG use stress command to add new ec2 and trigger cloud watch alarm</h1>" > /var/www/html/index.html
+              echo "<h1>Hello from Terraform ASG</h1>" > /var/www/html/index.html
               EOF
   )
 
