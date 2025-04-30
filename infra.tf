@@ -142,15 +142,7 @@ resource "aws_launch_template" "main" {
     security_groups             = [aws_security_group.ec2_sg.id]
   }
 
-  user_data = base64encode(<<-EOF
-              #!/bin/bash
-              sudo apt-get update -y
-              sudo apt-get install -y nginx
-              sudo systemctl start nginx
-              sudo systemctl enable nginx
-              echo "<h1>Hello from Terraform ASG........</h1>" > /var/www/html/index.html
-              EOF
-  )
+  user_data = file("install_pkg_config.sh")
 
   tag_specifications {
     resource_type = "instance"
