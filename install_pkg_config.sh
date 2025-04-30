@@ -12,10 +12,10 @@ sudo systemctl enable nginx
 
 #Clean Up
 sudo cd /var/www/html/
+sudo rm -rf index.nginx-debian.html
 sudo rm -rf index.html
 
-# Move index.html from Jenkins workspace to Nginx document root
-sudo mv /var/lib/jenkins/workspace/iac-pipeline/index.html /var/www/html/
+wget https://github.com/whoavesh/iac-automation/blob/main/index.html
 
 # Install Stress for cpu testing
 sudo apt-get install stress -y
