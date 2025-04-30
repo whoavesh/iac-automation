@@ -15,7 +15,7 @@ sudo rm -rf /var/www/html/index.nginx-debian.html
 sudo rm -rf /usr/share/nginx/html/index.html
 
 # Download index.html from GitHub raw content
-sudo wget -O /usr/share/nginx/html/index.html https://raw.githubusercontent.com/whoavesh/iac-automation/main/index.html
+sudo wget -O /var/www/html/index.html https://raw.githubusercontent.com/whoavesh/iac-automation/main/index.html
 
 
 # Restart Nginx to apply changes
