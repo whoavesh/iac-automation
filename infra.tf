@@ -155,7 +155,7 @@ resource "aws_launch_template" "main" {
 
 # Create an Auto Scaling Group
 resource "aws_autoscaling_group" "main" {
-  desired_capacity     = 1
+  desired_capacity     = 2
   max_size             = 3
   min_size             = 1
   vpc_zone_identifier  = [
