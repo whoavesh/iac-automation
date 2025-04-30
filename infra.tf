@@ -142,7 +142,8 @@ resource "aws_launch_template" "main" {
     security_groups             = [aws_security_group.ec2_sg.id]
   }
 
-  user_data = file("install_pkg_config.sh")
+  user_data = base64encode(file("install_pkg_config.sh"))
+
 
   tag_specifications {
     resource_type = "instance"
