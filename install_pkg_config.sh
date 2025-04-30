@@ -10,7 +10,7 @@ sudo apt-get install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-#Clean Up
+#Clean Up files
 sudo cd /var/www/html/
 sudo rm -rf index.nginx-debian.html
 sudo rm -rf index.html
