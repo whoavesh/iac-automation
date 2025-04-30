@@ -14,6 +14,10 @@ sudo systemctl enable nginx
 sudo rm -rf /usr/share/nginx/html/index.nginx-debian.html
 sudo rm -rf /usr/share/nginx/html/index.html
 
+# Set appropriate permissions for the web server
+sudo chown -R www-data:www-data /usr/share/nginx/html
+sudo chmod -R 755 /usr/share/nginx/html
+
 # Download index.html from GitHub raw content
 sudo wget -O /usr/share/nginx/html/index.html https://raw.githubusercontent.com/whoavesh/iac-automation/main/index.html
 
