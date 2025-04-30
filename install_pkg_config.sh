@@ -10,12 +10,16 @@ sudo apt-get install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-#Clean Up files
-sudo cd /var/www/html/
-sudo rm -rf index.nginx-debian.html
-sudo rm -rf index.html
+# Clean up files in Nginx document root
+sudo rm -rf /usr/share/nginx/html/index.nginx-debian.html
+sudo rm -rf /usr/share/nginx/html/index.html
 
-sudo wget https://github.com/whoavesh/iac-automation/blob/main/index.html
+# Download index.html from GitHub raw content
+sudo wget -O /usr/share/nginx/html/index.html https://raw.githubusercontent.com/whoavesh/iac-automation/main/index.html
+
+
+# Restart Nginx to apply changes
+sudo systemctl restart nginx
 
 # Install Stress for cpu testing
 sudo apt-get install stress -y
