@@ -15,7 +15,7 @@ sudo cd /var/www/html/
 sudo rm -rf index.nginx-debian.html
 sudo rm -rf index.html
 
-wget https://github.com/whoavesh/iac-automation/blob/main/index.html
+sudo wget https://github.com/whoavesh/iac-automation/blob/main/index.html
 
 # Install Stress for cpu testing
 sudo apt-get install stress -y
