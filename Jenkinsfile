@@ -4,7 +4,7 @@ pipeline{
         terraform 'terraform-11'
     }
     stages{
-        stage("Code clone"){
+        stage("Code cloning"){
             steps{
                 git url: "https://github.com/whoavesh/iac-automation", branch: "main"
                 echo "cloning process completed"
