@@ -145,7 +145,7 @@ Attach the following policies:
 - AdministratorAccess
 ---
 
-#### 🧩 Configure AWS CLI
+### 🧩 Configure AWS CLI
 Run the following on EC2 or local machine:
 
 ```bash
@@ -171,3 +171,104 @@ aws s3api create-bucket \
   --create-bucket-configuration LocationConstraint=us-east-1
 ```
 Replace your-terraform-state-bucket with a unique bucket name.
+
+---
+
+
+# Project Setup
+## ⚙️ Automated Provisioning Pipeline setup
+
+Follow these steps to create a automated infrastructure provisioning pipeline.
+
+---
+
+### ✅ Step 1: Install Terraform on Jenkins Server
+
+SSH into your Jenkins EC2 instance and run the following:
+
+```bash
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+terraform -version
+```
+---
+### 🚀 2. Create a Declarative Pipeline Project in Jenkins
+Go to Jenkins Dashboard → New Item
+
+Enter a project name (e.g., Terraform-Pipeline)
+
+Select Pipeline, then click OK
+
+## ⚙️ 2.1 Configure the Pipeline from GitHub SCM
+In the pipeline configuration page:
+
+Scroll to Pipeline
+
+Under Definition, choose Pipeline script from SCM
+
+SCM: Select Git
+
+Repository URL: Paste your GitHub repository link containing Jenkinsfile
+
+Set credentials if it's a private repo
+
+## 🔁 2.2 Enable GitHub Webhooks
+Under the Build Triggers section:
+
+Check GitHub hook trigger for GITScm polling
+
+Go to your GitHub repository → Settings → Webhooks
+
+Add a new webhook:
+
+- Payload URL: http://<your-jenkins-server>:8080/github-webhook/
+
+- Content type: application/json
+
+- Select send me everything
+
+Save
+
+---
+### ✅ Step 3: Generate Google App Password
+Go to your Google Account Security Settings
+
+Under "Signing in to Google", select App Passwords
+
+Authenticate and choose:
+
+- App: Mail
+
+- Device: Other (e.g., Jenkins)
+Generate and copy the 16-character app password
+
+---
+### ✅ Step 4: Configure Gmail for Extended Email Notifications
+Go to Manage Jenkins → Configure System
+
+Scroll to Extended E-mail Notification
+
+Use the following:
+
+- SMTP server: smtp.gmail.com
+
+- SMTP port: 465 (SSL)
+
+Use SMTP Authentication: ✅
+
+- Username: your Gmail address (e.g., you@gmail.com)
+
+- Password: App password (see next step)
+
+SMTP TLS/SSL: ✅ enabled
+
+---
+
+### ✅ Step 5: Paste App Password in Jenkins
+Return to Extended E-mail Notification section in Jenkins
+
+Paste the 16-character app password in the password field
+
+Test the configuration using the "Test configuration by sending test e-mail" option
+
