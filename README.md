@@ -156,13 +156,13 @@ aws configure
 ```
 Then provide:
 
-Access Key ID of IAM User 
+- Access Key ID of IAM User 
 
-Secret Access Key of IAM User
+- Secret Access Key of IAM User
 
-Default region (e.g., us-east-1) (leave it default, press enter)
+- Default region (e.g., us-east-1) (leave it default, press enter)
 
-Output format (e.g., json)  (leave it default, press enter)
+- Output format (e.g., json)  (leave it default, press enter)
 
 ---
 
