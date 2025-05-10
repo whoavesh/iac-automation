@@ -83,7 +83,7 @@ ssh -i "your-key.pem" ubuntu@<your-ec2-public-ip>
 
 ### 📥 Install AWS CLI
 
-#### On EC2 (Amazon Linux 2):
+### On EC2 (Amazon Linux 2):
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
@@ -91,7 +91,7 @@ sudo ./aws/install
 aws --version 
 ```
 
-#### 📦 Install Terraform on EC2
+### 📦 Install Terraform on EC2
 ```bash
 Copy
 Edit
@@ -103,7 +103,7 @@ terraform -version
 
 
 
-#### 🧰 Install Jenkins on EC2
+### 🧰 Install Jenkins on EC2
 Launch an EC2 instance (Amazon Linux 2)
 
 SSH into the instance:
@@ -140,7 +140,7 @@ Edit
 http://<your-ec2-public-ip>:8080
 ```
 
-#### 🔐 IAM User Setup
+### 🔐 IAM User Setup
 Go to AWS Console → IAM → Users → Add User
 
 Name your user (e.g., terraform-user)
@@ -175,7 +175,7 @@ Default region (e.g., us-east-1) (leave it default, press enter)
 Output format (e.g., json)  (leave it default, press enter)
 
 
-#### 🪣 Create S3 Bucket for Terraform Remote State
+### 🪣 Create S3 Bucket for Terraform Remote State
 ```bash
 Copy
 Edit
