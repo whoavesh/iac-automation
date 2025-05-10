@@ -2,24 +2,6 @@
 
 This project guides you through setting up a complete DevOps-ready infrastructure using **AWS CLI**, **Terraform**, and **Jenkins** on an EC2 instance. It includes step-by-step instructions for installing tools, configuring IAM, setting up Jenkins, managing Terraform remote state with S3, and more.
 
----
-
-## 📌 Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Tool Installation](#tool-installation)
-  - [Install AWS CLI](#install-aws-cli)
-  - [Install Terraform](#install-terraform)
-  - [Install Jenkins on EC2](#install-jenkins-on-ec2)
-- [IAM User Setup](#iam-user-setup)
-- [Configure AWS CLI](#configure-aws-cli)
-- [Create S3 Bucket for Terraform State](#create-s3-bucket-for-terraform-state)
-- [Project Setup & Usage](#project-setup--usage)
-- [Folder Structure](#folder-structure)
-- [License](#license)
-
----
-
 ## ✅ Prerequisites
 
 - AWS Account
@@ -35,6 +17,7 @@ Follow these steps to create an EC2 instance that will host Jenkins and other to
 ### 🔹 Step 1: Login to AWS Management Console
 
 - Navigate to [EC2 Dashboard](https://console.aws.amazon.com/ec2/).
+- Change you region to (eu-west-2) by clicking dropdown on top right corner.
 
 ---
 
@@ -94,7 +77,7 @@ After the instance is in "Running" state:
 
 ```bash
 ssh -i "your-key.pem" ubuntu@<your-ec2-public-ip>
-
+```
 
 ## 🔧 Tool Installation
 
