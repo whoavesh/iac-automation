@@ -28,6 +28,74 @@ This project guides you through setting up a complete DevOps-ready infrastructur
 
 ---
 
+## 🖥️ EC2 Instance Creation (Ubuntu with t2.medium)
+
+Follow these steps to create an EC2 instance that will host Jenkins and other tools.
+
+### 🔹 Step 1: Login to AWS Management Console
+
+- Navigate to [EC2 Dashboard](https://console.aws.amazon.com/ec2/).
+
+---
+
+### 🔹 Step 2: Launch Instance
+
+1. Click on **Launch Instance**
+2. Set the name: `jenkins-server` (or any preferred name)
+
+---
+
+### 🔹 Step 3: Choose AMI (Amazon Machine Image)
+
+- Choose **Ubuntu Server 22.04 LTS (HVM), SSD Volume Type**
+- Architecture: **x86_64**
+- Virtualization type: **HVM**
+
+---
+
+### 🔹 Step 4: Choose Instance Type
+
+- Select instance type: **`t2.medium`**
+  - 2 vCPU, 4 GiB RAM — suitable for Jenkins and other DevOps tools
+
+---
+
+### 🔹 Step 5: Create/Select Key Pair
+
+- Create a new key pair or select an existing one
+- Download the `.pem` file and store it securely — needed for SSH access
+
+---
+
+### 🔹 Step 6: Configure Network Settings
+
+- Select **Allow HTTP traffic from the internet**
+- Select **Allow HTTPS traffic from the internet**
+- (Optional) Open **port 8080** for Jenkins access
+
+---
+
+### 🔹 Step 7: Configure Storage
+
+- Set **Root Volume Size** to **10 GiB** (default is often 8 GiB)
+- Volume Type: **General Purpose SSD (gp2 or gp3)**
+
+---
+
+### 🔹 Step 8: Launch the Instance
+
+- Review all settings and click **Launch Instance**
+
+---
+
+### 🔹 Step 9: Connect to Your Instance
+
+After the instance is in "Running" state:
+
+```bash
+ssh -i "your-key.pem" ubuntu@<your-ec2-public-ip>
+
+
 ## 🔧 Tool Installation
 
 ### 📥 Install AWS CLI
