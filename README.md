@@ -9,7 +9,7 @@ This project guides you through setting up a complete DevOps-ready infrastructur
 - Basic knowledge of AWS, Terraform, and Linux CLI
 
 ---
-# ****Enviroment Setup****
+# Enviroment Setup
 ## 🖥️ EC2 Instance Creation (Ubuntu with t2.medium)
 
 Follow these steps to create an EC2 instance that will host Jenkins and other tools.
