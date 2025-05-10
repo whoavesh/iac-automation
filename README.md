@@ -88,3 +88,49 @@ Copy
 Edit
 http://<your-ec2-public-ip>:8080
 ```
+
+#### 🔐 IAM User Setup
+Go to AWS Console → IAM → Users → Add User
+
+Name your user (e.g., terraform-user)
+
+Enable Programmatic access
+
+Attach the following policies:
+
+AmazonS3FullAccess
+
+AdministratorAccess
+
+Complete creation and download the .csv file with access keys
+
+
+#### 🧩 Configure AWS CLI
+Run the following on EC2 or local machine:
+
+```bash
+Copy
+Edit
+aws configure
+```
+Then provide:
+
+Access Key ID of IAM User 
+
+Secret Access Key of IAM User
+
+Default region (e.g., us-east-1) (leave it default, press enter)
+
+Output format (e.g., json)  (leave it default, press enter)
+
+
+#### 🪣 Create S3 Bucket for Terraform Remote State
+```bash
+Copy
+Edit
+aws s3api create-bucket \
+  --bucket your-terraform-state-bucket \
+  --region us-east-1 \
+  --create-bucket-configuration LocationConstraint=us-east-1
+```
+Replace your-terraform-state-bucket with a unique bucket name.
