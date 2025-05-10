@@ -82,7 +82,6 @@ ssh -i "your-key.pem" ubuntu@<your-ec2-public-ip>
 ```
 
 ## 🔧 Tool Installation
----
 ### 📥 Install AWS CLI On EC2 (Amazon Linux 2):
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -141,9 +140,9 @@ Enable Programmatic access
 
 Attach the following policies:
 
-AmazonS3FullAccess
+- AmazonS3FullAccess
 
-AdministratorAccess
+- AdministratorAccess
 
 Complete creation and download the .csv file with access keys
 ---
