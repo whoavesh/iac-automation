@@ -144,9 +144,6 @@ Attach the following policies:
 
 - AdministratorAccess
 ---
-Complete creation and download the .csv file with access keys
----
-
 
 #### 🧩 Configure AWS CLI
 Run the following on EC2 or local machine:
