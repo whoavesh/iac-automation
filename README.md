@@ -2,6 +2,8 @@
 
 This project guides you through setting up a complete DevOps-ready automated infrastructure provisioning pipeline using **AWS CLI**, **Terraform**, and **Jenkins** on an EC2 instance. It includes step-by-step instructions for installing tools, configuring IAM, setting up Jenkins, managing Terraform remote state with S3, and more.
 
+Fork this repository in you github account and follow the below guide to setup this project.
+
 ## ✅ Prerequisites
 
 - AWS Account
