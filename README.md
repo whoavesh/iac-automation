@@ -5,6 +5,7 @@ This project guides you through setting up a complete DevOps-ready automated inf
 ## ✅ Prerequisites
 
 - AWS Account
+- EC2 server
 - SSH key pair for EC2 access
 - Basic knowledge of AWS, Terraform, and Linux CLI
 
