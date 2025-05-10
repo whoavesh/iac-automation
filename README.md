@@ -93,8 +93,6 @@ aws --version
 ---
 ### 📦 Install Terraform on EC2
 ```bash
-Copy
-Edit
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 sudo yum -y install terraform
@@ -110,22 +108,16 @@ Launch an EC2 instance (Amazon Linux 2)
 SSH into the instance:
 
 ```bash
-Copy
-Edit
 ssh -i "your-key.pem" ec2-user@<your-ec2-public-ip>
 ```
 Install Java:
 
 ```bash
-Copy
-Edit
 sudo yum install java-11-amazon-corretto -y
 ```
 Add Jenkins repo and install:
 
 ```bash
-Copy
-Edit
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 sudo yum install jenkins -y
@@ -136,8 +128,6 @@ Open port 8080 in EC2 security group.
 
 Access Jenkins:
 ```
-Copy
-Edit
 http://<your-ec2-public-ip>:8080
 ```
 ---
@@ -163,8 +153,6 @@ Complete creation and download the .csv file with access keys
 Run the following on EC2 or local machine:
 
 ```bash
-Copy
-Edit
 aws configure
 ```
 Then provide:
@@ -181,8 +169,6 @@ Output format (e.g., json)  (leave it default, press enter)
 
 ### 🪣 Create S3 Bucket for Terraform Remote State
 ```bash
-Copy
-Edit
 aws s3api create-bucket \
   --bucket your-terraform-state-bucket \
   --region us-east-1 \
