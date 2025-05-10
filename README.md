@@ -90,16 +90,6 @@ sudo ./aws/install
 aws --version 
 ```
 ---
-### 📦 Install Terraform on EC2
-```bash
-sudo yum install -y yum-utils
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-sudo yum -y install terraform
-terraform -version
-```
-
----
-
 
 ### 🧰 Install Jenkins on EC2
 Launch an EC2 instance (Amazon Linux 2)
@@ -259,16 +249,11 @@ Use SMTP Authentication: ✅
 
 - Username: your Gmail address (e.g., you@gmail.com)
 
-- Password: App password (see next step)
+- Password: App password (Paste the 16-character app password in the password field)
 
 SMTP TLS/SSL: ✅ enabled
 
----
-
-### ✅ Step 5: Paste App Password in Jenkins
-Return to Extended E-mail Notification section in Jenkins
-
-Paste the 16-character app password in the password field
-
 Test the configuration using the "Test configuration by sending test e-mail" option
+
+---
 
