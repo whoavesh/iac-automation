@@ -257,3 +257,19 @@ Test the configuration using the "Test configuration by sending test e-mail" opt
 
 ---
 
+
+## 🚀 Executing the Automated Infrastructure Provisioning Pipeline
+
+To trigger the pipeline:
+
+1. **Make any changes to the `infra.tf` file** in your GitHub repository (e.g., update a resource, add a tag, modify an instance type).
+2. **Push the changes** to the main branch.
+
+As soon as the changes are pushed:
+
+- Jenkins will **automatically trigger the pipeline** using the configured GitHub webhook.
+- You can monitor the pipeline execution from the **Jenkins dashboard**.
+- Once completed, the **infrastructure will be automatically provisioned** (or updated) on AWS based on the new configuration in `infra.tf`.
+
+✅ This ensures **fully automated, version-controlled infrastructure management** using Terraform and Jenkins CI/CD.
+
