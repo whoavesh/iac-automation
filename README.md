@@ -80,7 +80,7 @@ ssh -i "your-key.pem" ubuntu@<your-ec2-public-ip>
 ```
 
 ## 🔧 Tool Installation
-
+---
 ### 📥 Install AWS CLI
 
 ### On EC2 (Amazon Linux 2):
@@ -90,7 +90,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 aws --version 
 ```
-
+---
 ### 📦 Install Terraform on EC2
 ```bash
 Copy
@@ -101,6 +101,7 @@ sudo yum -y install terraform
 terraform -version
 ```
 
+---
 
 
 ### 🧰 Install Jenkins on EC2
@@ -139,6 +140,7 @@ Copy
 Edit
 http://<your-ec2-public-ip>:8080
 ```
+---
 
 ### 🔐 IAM User Setup
 Go to AWS Console → IAM → Users → Add User
@@ -154,6 +156,7 @@ AmazonS3FullAccess
 AdministratorAccess
 
 Complete creation and download the .csv file with access keys
+---
 
 
 #### 🧩 Configure AWS CLI
@@ -174,6 +177,7 @@ Default region (e.g., us-east-1) (leave it default, press enter)
 
 Output format (e.g., json)  (leave it default, press enter)
 
+---
 
 ### 🪣 Create S3 Bucket for Terraform Remote State
 ```bash
