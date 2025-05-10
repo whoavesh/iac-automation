@@ -270,6 +270,7 @@ As soon as the changes are pushed:
 - Jenkins will **automatically trigger the pipeline** using the configured GitHub webhook.
 - You can monitor the pipeline execution from the **Jenkins dashboard**.
 - Once completed, the **infrastructure will be automatically provisioned** (or updated) on AWS based on the new configuration in `infra.tf`.
+- Copy the dns of Loadbalancer, a sample website will be deployed on ec2.
 
 ✅ This ensures **fully automated, version-controlled infrastructure management** using Terraform and Jenkins CI/CD.
 
