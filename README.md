@@ -183,7 +183,7 @@ sudo yum -y install terraform
 terraform -version
 ```
 ---
-### 🚀 2. Create a Declarative Pipeline Project in Jenkins
+### ✅ Step 2: Create a Declarative Pipeline Project in Jenkins
 Go to Jenkins Dashboard → New Item
 
 Enter a project name (e.g., Terraform-Pipeline)
@@ -216,7 +216,7 @@ Add a new webhook:
 
 - Content type: application/json
 
-- Select send me everything
+- Select: send me everything
 
 Save
 
